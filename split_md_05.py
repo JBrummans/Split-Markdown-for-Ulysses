@@ -50,8 +50,10 @@ def clean_file_name(fname):
     fname = fname.replace("?", "-")
     fname = fname.replace("|", "-")
     fname = fname.replace("—", "-")
+    fname = fname.replace("_##.md", ".md")
     if (no_spaces):
         fname = fname.replace(" ", "-")
+
     return fname
 
 
