@@ -102,8 +102,8 @@ path_num = 1
 file_prefix = ""
 path_prefix = ""
 if num_files:
-    file_prefix = str(file_num).zfill(2) + " - "
-    path_prefix = str(path_num).zfill(2) + " - "
+    file_prefix = str(file_num).zfill(2) + "-"
+    path_prefix = str(path_num).zfill(2) + "-"
 
 subpath = path_prefix + "Front matter"
 fname = subpath + ".md"
@@ -121,7 +121,7 @@ for line in lines:
     elif line.strip().startswith("#"):  # - h1 and h2
         file_num += 1
         if num_files:
-            file_prefix = str(file_num).zfill(2) + " - "
+            file_prefix = str(file_num).zfill(2) + "-"
         if sect_text != "":
             md_combined += print_file(subpath, fname, sect_text)
         elif path_num == 1:
@@ -130,8 +130,8 @@ for line in lines:
             path_num += 1
             file_num = 1
             if num_files:
-                path_prefix = str(path_num).zfill(2) + " - "
-                file_prefix = str(file_num).zfill(2) + " - "
+                path_prefix = str(path_num).zfill(2) + "-"
+                file_prefix = str(file_num).zfill(2) + "-"
 
             subpath = path_prefix + re.sub(r"^(#+) ?(.+?) ?#*$", r"\2",
                                            line.strip())
