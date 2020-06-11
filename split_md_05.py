@@ -108,8 +108,14 @@ subpath = path_prefix + "Front matter"
 fname = subpath + ".md"
 
 sect_text = ""
+code_block = False
 for line in lines:
-    if line.strip().startswith(split_level): #By default h3 and below will not be split into another file
+    if line.strip().startswith('```'): 
+        code_block ^= True
+        if "```" in line.strip()[line.strip().startswith('```'):]:
+            code_block ^= True
+
+    if line.strip().startswith(split_level) or code_block == True: #By default h3 and below will not be split into another file
         sect_text += line + "\n"
     elif line.strip().startswith("#"):  # - h1 and h2
         file_num += 1
